@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>WooReminder - Documentation - Help File</title>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <style type='text/css'>
+            img{
+                max-width: 650px;
+            } 
+            body {
+                overflow-x: hidden;
+                position: relative;
+            }
+            #sidebar-toggle{
+                position:fixed;
+                right:2px;
+                font-size: 30px;
+                top:2px;
+				z-index:999;
+				color:#848484;
+            }
+            #main-container {
+                padding-left: 0;
+                -webkit-transition: all 0.6s ease;
+                -moz-transition: all 0.6s ease;
+                -o-transition: all 0.6s ease;
+                transition: all 0.6s ease;
+            }
+            #main-container.sidebar-visible {
+                padding-left: 260px;
+            }
+
+            #main-container.sidebar-visible #sidebar-wrapper {
+                width: 260px;
+            }
+            #sidebar-wrapper {
+                z-index: 1000;
+                position: fixed;
+                left: 260px; 
+                height: 100%;
+                width: 0;
+                margin-left: -260px;
+                background: #0a0a0a;
+                overflow-y: auto;
+                -webkit-transition: all 0.6s ease;
+                -moz-transition: all 0.6s ease;
+                -o-transition: all 0.6s ease;
+                transition: all 0.6s ease;
+            }
+            #content-wrap {
+                width: 100%;
+                position: absolute;
+                padding: 15px;
+            }
+
+            #main-container.sidebar-visible #content-wrap {
+                position: absolute;
+                margin-right: -260px;
+            }
+
+
+            .sidebar-nav {
+                position: absolute;
+                top: 0;
+
+                margin: 0;
+                width: 260px;
+
+                padding: 0;
+
+                list-style: none;
+            }
+
+            .sidebar-nav li {
+              /*  text-indent: 25px;
+                line-height: 45px;*/
+				border-top:1px solid #3a3a3a;
+            }
+
+            .sidebar-nav li a {
+                display: block;
+                color: #cecece;
+
+            }
+
+            .sidebar-nav li a:hover,.sidebar-nav li a.selected {
+                background: rgba(255,255,255,0.3);
+                color: #fff;
+            }
+
+            .sidebar-nav li a,.sidebar-nav li a:active,.sidebar-nav li a:focus,.sidebar-nav li a:hover{
+                text-decoration: none;
+            }
+            .sidebar-nav > .brand a {
+                color: #fff;
+            }
+            .sidebar-nav > .brand {
+
+                font-size: 22px;
+                height: 60px;
+				line-height:40px;
+            }
+
+
+
+
+
+            @media(min-width:768px) {
+                #main-container {
+                    padding-left: 0;
+                }
+
+                #main-container.sidebar-visible {
+                    padding-left: 260px;
+                }
+
+
+
+                #content-wrap {
+                    padding: 25px;
+                    position: relative;
+                }
+
+                #main-container.sidebar-visible #sidebar-wrapper {
+                    width: 260px;
+                }
+
+                #main-container.sidebar-visible #content-wrap {
+                    margin-right: 0;
+                    position: relative;
+
+                }
+                #sidebar-wrapper {
+                    width: 0;
+                }
+            }
+			
+			#sec-top{
+				text-align:center;
+			}
+			#getting-up{
+				list-style:none;
+				padding:0;
+			}
+			#getting-up li{
+				padding-left:30px;
+			}
+			#top{
+				text-align:center;
+			}
+			li.active{
+				border-left:3px solid #fff;
+			}
+			.mt-sec{
+				margin-top:30px;
+			}
+			hr{
+				margin-top:10px !important;
+			}
+			
+			
+			
+			
+			
+			.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+        <![endif]-->
+		
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    </head>
+
+    <body data-spy="scroll" data-target="#sidebar-wrapper" data-offset="10">
+
+        <div class="sidebar-visible" id="main-container">
+
+
+            <div id="sidebar-wrapper">
+			<nav>
+                <ul class="sidebar-nav nav">
+                    <li class="brand">
+                        <a href="#top" class="do-nothing-a">
+                            WooReminder - DOCS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#intro">Introduction</a>
+                    </li>
+					<li>
+                        <a href="#how-works">How does it work?</a>
+                    </li>
+                    
+					<li>
+                        <a href="#setup-outline" id="getting-up-btn" class="do-nothing-a" data-toggle="collapse" data-target="#getting-up" aria-expanded="false" >Getting Up and Running <span class="glyphicon glyphicon-chevron-down" aria-label="- DropDown" aria-hidden="true"></span></a>
+						      <ul class="collapse nav" id="getting-up" role="menu" aria-labelledby="getting-up-btn">
+                    
+					<li>
+                        <a href="#setup-outline">Quick outline on Setup</a>
+                    </li>
+					<li>
+                        <a href="#install">Installation & Activation</a>
+                    </li>
+					<li>
+                        <a href="#set-page">WooReminder Settings Page</a>
+                    </li>
+					<li>
+                        <a href="#prod-setup">Reminder Days Setup</a>
+                    </li>
+                    
+                    <li>
+                        <a href="#rem-list">Reminder List</a>
+                    </li>
+      </ul>
+                    </li>
+
+                    <li>
+                        <a href="#default-mail">Email Template</a>
+                    </li>
+                    <li>
+                        <a href="#folloup-mail">Follow Up Email Template</a>
+                    </li>
+                    <li>
+                        <a href="#settings">Settings</a>
+                    </li>
+                    <li>
+                        <a href="#stats-info">Stats and Infos</a>
+                    </li>
+					<li>
+                        <a href="#order-action">Order Action</a>
+                    </li>
+					<li>
+						<a href="#server-req">Server Requirement</a>
+					</li>
+					<li>
+						<a href="#browser-req">Browser Requirement</a>
+					</li>
+					<li>
+						<a href="#changelog">Change Logs</a>
+					</li>					
+                    <li>
+                        <a href="#support">Support</a>
+                    </li>
+
+
+
+                </ul>
+				</nav>
+            </div>
+
+            <div id="content-wrap">
+
+                <div class="container-fluid">
+                    <div id="top" class="page-header">
+					<h1 style="font-size:75px;font-weight:300;line-height1.1;">WooReminder</h1>
+					<h4 class="text-muted">Documentation by <a href="http://wptowncenter.com">WPTownCenter</a> <small>v1.5</small></h4>                       
+					<h5 class="text-muted"><em>Created on 2017-07-11 & Updated on 2018-11-17</em></h5>                       
+						
+                    </div>
+                    <div class="jumbotron">
+                        <h1 style="font-size:55px;">Howdy !!!</h1>
+                        <p>Thank you for purchasing WooReminder plugin. If you have any questions that are beyond the scope of this help file, please feel free to email at <a href="mailto:contact@wptowncenter.com">contact@wptowncenter.com</a> Thanks so much!</p>
+                    </div>
+                    <a href="#sidebar-toggle"  alt='Toggle Sidemenu' class='btn-lg' id="sidebar-toggle"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+                    <div class="row" id="intro">
+                        <div>
+                            <h1>Introduction</h1>
+							<hr>
+                            <p>WooReminder is a WordPress plugin built for WooCommerce. 
+                                WooReminder boosts sales of your WooCommerce Shop by sending reminder Email to customers to re-order items/products that they have purchased earlier in your shop.</p>
+                                <p>Shop admin has to set reminder days<small><em>(How many days after the purchase of product a reminder should be sent)</em></small> for products.
+                                WooReminder will take care of sending reminder Emails to customers. WooReminder act as virtual IoT re-order button for your online shop, meaning there is no physical button at all present in this case. Instead, WooReminder sends Email and make the customer buy from your shop with email links present on reminder mail.
+                                WooReminder is a must have plugin for shops which use WooCommerce to sell daily consumable product categories like Groceries, Cosmetics, Foods & Supplements etc.
+                            </p>
+
+                        </div>
+                    </div>
+					
+<div class="row mt-sec" id="how-works">
+                        <div>
+                            <h1>How Does it works?</h1>
+							<hr>
+                            <p>It's very simple</p>
+                            <ul>
+								<li>Reminder days for products are set first</li>
+								<li>When a customer purchases products which are enabled for reminder, then those will be added as reminder in WooReminder List</li>
+								<li>Once the reminder day is reached, an email will be sent to customer</li>
+								<li>Customer re-order/buys the product again in your shop from the email link.</li>
+								<li>That's it. Above is the basic concept, but there are follow-up email if the customer is not buying from initial email.</li>
+							</ul>
+                        </div>
+                    </div>
+					
+					<div class="row mt-sec" id="setup-outline">
+                        <div>
+                            <h1>Quick outline on Setup</h1>
+							<hr>
+                            <p>Ok cool. You bought the plugin, what now? WooReminder comes with default settings and default email templates.
+							You can start using the plugin in short time.<br>
+							Just follow the below steps to get going.</p>
+                            <ul>
+								<li>First Install and activate the plugin</li>
+								<li>Set Reminder days for each product at WooCommerce Product edit page.</li>
+								<li>That's all.</li>
+								<li>Really that's all, you can get going with default settings.</li>
+								<li>However it is recommended to change the email templates, and settings according to your site.</li>
+								<li>Please check the below detailed sections about each setting/features.</li>
+							</ul>
+                        </div>
+                    </div>
+					
+                    <div class="row mt-sec" id="install">
+                        <h1>Installation & Activation</h1>
+						<hr>
+                        A WordPress Plugin can be installed by any one of the below
+                        <ul>
+                            <li>
+                                Automatic Installation 
+                            </li>
+                            <li>
+                                Manual Installation
+                            </li>
+                        </ul>
+                        <h4>Automatic Installation - <span>Recommended</span></h4>
+                        To do automatic installation follow the below steps.
+                        <ol>
+                            <li>Login to your WordPress Website Dashboard</li>
+                            <li>Navigate to Plugins > Add New</li>
+                            <li><p>Click on <strong>Upload Plugin</strong> then browse <strong>woo-reminder.zip</strong> file which you should have downloaded from codecanyon.net and click <strong>Install Now</strong></p><img style="width:500px;" src='img/plugin-browse.png' /></li>
+                            <li><p>You should see a <strong>Plugin installed successfully</strong> message as below. </p><img style="width:500px;" src='img/plugin-installed-successfully.png' /></li>
+                            <li>Upon successful installation, click <strong>Activate Plugin</strong> to activate it. That's it.</li>
+                        </ol>
+
+                        <h4>Manual Installation</h4>
+                        <p>
+                            There are cases where Manual Plugin Installation is appropriate. Eg: You server does not allow WordPress to install Plugin, write permission etc.
+                            Installing a WordPress Plugin manually requires FTP familiarity, you could edit/delete other folders of your WordPress installation by mistake.
+                            This method is not recommended.
+                            To do manual installation follow the below steps.
+                        <ol>
+                            <li>Extract <strong>woo-reminder.zip</strong> to woo-reminder in your desktop</li>
+                            <li>Use any FTP client of your choice to upload woo-remainder plugin files to your Installation. FileZilla is recommended one.</li>
+                            <li>Connect to your WordPress installation and navigate to <strong> wp-content/plugins</strong>  folder in your WordPress directory online</li>
+                            <li>Transfer <strong> woo-reminder</strong>  directory to your plugin folder online</li>
+                            <li>Once Transfer is finished, Go to your plugin screen in WordPress dashboard.</li>
+                            <li>Find WooReminder and click <strong>Activate</strong>. That's it.</li>
+                        </ol>
+                        </p>
+                    </div>
+					
+                    <div class="row mt-sec" id="set-page">
+                        <div>
+                            <h1>WooReminder Settings Page</h1>
+							<hr>
+                            <p>WooReminder Settings can be accessed by navigating to Dashboard menu -> WooReminders</p>
+                            <img src="img/wooreminder-menu.png"  />
+                        </div>
+                    </div>
+					
+					<div class="row mt-sec" id="prod-setup">
+                        <div>
+                            <h1>Reminder Days Setup</h1>
+							<hr>
+                            <h4>WooReminder works only with simple and variable products</h4>
+                            <p>
+                                You can set reminder days for each product by going to product edit page and set the reminder days for simple and variable products.                                           
+                            </p>
+                            <p>
+                                In order to set the reminder to a product, the reminder should be enabled first and then we can set a number of days after the purchase a reminder should be sent.<br>
+                                This can be found on product edit page under section product data <strong>General Settings</strong><br>
+                                Below image is an example of simple product<br><br>
+                                <img src="img/simple-product-reminder settings.png" />
+                            </p>
+<br><br>
+                            <p>
+                                Enabling reminder for the variable product is same as simple product, Reminder days for each variation can be controlled separately. Reminder days settings can be found in each variation.
+                                but you can control the reminder enable/disable for each variation by leaving the reminder days to empty or 0. Doing so will disable reminder for the particular variation alone.
+                                This can be useful in some cases where you aren't sure the usage volume of that particular variation or you simply don't want the reminder for that particular variation.
+                                <br>Below images are example for variable product
+                                <br><br>
+                                <img src="img/vp-reminder-enable.png" /><br><br>
+                                <img src="img/vp-reminder-days.png" />
+                            </p>  
+
+												<div class="bs-callout bs-callout-primary fade in">
+  <h4>IMPORTANT TIPS</h4>
+  <p>
+You should determine the number of days exactly a product might be consumed on an average usage.
+                                Because setting on early days will frustrate your customer by getting too many emails before they run out of that product. Similarly setting late days will result in your customer could have bought the product somewhere before they get the mail. 
+                                <br> <strong>Setting a likely reminder days plays a major role in getting re-order.</strong>
+                                If we didn't set it correctly then outcome from this plugin might not be great. 
+                            </p>
+</div>
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-sec" id="rem-list">
+                        <div>
+                            <h1>Reminder List</h1>
+							<hr>
+                            <p>As the name is self-explanatory, this is where all the reminders are shown.</p>
+                            <p>Once an order is completed and if it has reminder enabled product,  then those reminders are added to reminder list on order completion. This will happen only on order completion because there is no point in adding a reminder campaign before the product reaches customer's hand. Who knows just in case if shipping gets delayed and reminder mail sent before the actual product reaches customer then think of how angry a customer will be in.</p>
+                            <p>This is the reason reminder are added only when an order is completed.</p>
+                            <img src="img/reminder-list.png"  /><br><br>
+							<div class="panel panel-info">
+							<div class="panel-heading">
+							<h3 class="panel-title">Column Names & its Details</h3>
+							</div>
+							<div class="panel-body">  
+							<table class="table table-bordered table-striped bs-events-table">
+							<tr><td>
+							<strong>ID</strong></td><td>WooReminder ID - Reference for reminders in WooReminder List</td></tr>
+							<tr><td>
+							<strong>Order ID</strong></td><td>WooCommerce Order ID. This explains from which WooCommerce Order this reminder is created.</td></tr>
+							<tr><td>
+							<strong>Billing Name</strong>
+							</td><td>
+							Customer billing name entered at checkout
+							</td></tr>
+							
+							<tr><td>
+							<strong>Email</strong>
+							</td><td>
+							Customer billing email entered at checkout
+							</td></tr>
+							
+							<tr><td>
+							<strong>Product ID</strong>
+							</td><td>
+							ID of a product which customer bought, this is useful to identify a product if its name is changed multiple time.
+							</td></tr>
+							
+							<tr><td>
+							<strong>Product Name</strong>
+							</td><td>
+							Product Name are the name stored in reminder table at the time of order placement. So in future, if you change a product name it name won't be changed here. This is why product ID is given to identify a product.The product name is stored in reminder table to show product name without looking product name from other table each time of retrieval(Done to achieve performance in admin page)
+							<br>
+                            <strong>However, when using the [product_title] in mail template, will always fetch current title of the product.</strong>
+							</td></tr>
+							
+							<tr><td>
+							<strong>Email Date</strong>
+							</td><td>
+							Email Date is the date at which the reminder email is about to be sent.
+							</td></tr>
+							
+							<tr><td>
+							<strong>Reminder Status</strong>
+							</td><td>
+							Has two statuses. 1.Active 2.Finished(When a reminder is finished no Emails will be sent and no further actions happen).
+							</td></tr>
+							
+							<tr><td>
+							<strong>Reminder Logs</strong>
+							</td><td>
+							can be seen with <img src="img/reminder-logs.png"  />
+							</td></tr>
+														<tr><td colspan='2'>
+							<strong>Reminder can</strong> be deleted with <img src="img/reminder-delete.png"  />
+							</td></tr>
+							</table>
+							
+                             </div>
+							</table>
+							</div>                        
+
+
+                        </div>
+                    </div>
+                    <div class="row mt-sec" id="default-mail">
+                        <div>
+                            <h1>Email Template(Main/Initial Email Template)</h1>
+							<hr>
+                            <p>This is the email template which used for initial mail at reminder email date. So when a reminder date is reached, this email template will be used for email.<br>
+                                It is advisable to check and setup your content according to your shop for email templates. Give content are generic.</p>                                     
+                            <img src="img/main-email-template.png"  />
+                        </div>
+                    </div>
+
+                    <div class="row mt-sec" id="folloup-mail">
+                        <div>
+                            <h1>Follow Up Email</h1>
+							<hr>
+                            <p>Follow Up Emails are sent after initial reminder mail date. For Example: if a reminder is about to send on 2017-07-06 then if you have a followup template with 10 days after default email reminder then the mail could be sent on 2017-07-16<br>
+                                Followup Email is powerful but don't overdo multiple followup e-mails. Too many followups can frustrate your customer.
+                                We would suggest to have just two followups with the last one with some exciting offers. If a customer is not buying even with offers, then there is no point in sending more followups. </p>                                     
+                            <img src="img/follow-up-list.png"  />
+                            <p>By default there are two followups emails with the second being disabled because it contains a dummy coupon code, this is done to give you an idea.
+                                You can delete it or use your own content with your coupons are all up to you.
+                                If a followup up email template status is disabled then no email will be sent from that template.</p>
+                            <img src="img/follow-up-one.png"  />
+                            <p>
+                                All the give content on email template are just to get you started. You can use your own content which suits your site and don't forget to replace real coupon code in the second email template or remove it completely to avoid customer coming to your site saying coupon SHOP5 doesn't work. SHOP5 is dummy text to give you some idea.
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Special/Replaceable Codes in Mail Template</h4>
+                            <ul>
+                                <li><code>[site_title_wrmdr]</code> - for Site Name</li>
+                                <li><code>[first_name]</code> - for Customer First Name</li>
+                                <li><code>[last_name]</code> - for Customer Last Name</li>
+                                <li><code>[re_order_url anchor="Link"]</code> - for re-order link, where the anchor is for anchor text for the link</li>
+								<li><code>[ordered_date]</code> - for showing ordered date</li>
+								<li><code>[wrmdr_unsubscribe_url anchor="Link"]</code> - Customer can unsubscribe from the reminder. By clicking this link.</li>
+                            </ul>                      
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-sec" id="settings">
+                        <div>
+                            <h1>Settings</h1>
+							<hr>
+                            <p>You can just start running WooReminder with defaults settings itself, in case if you wanted to play around below are the details of settings </p>
+                            <div class="row"><div class="col-md-3"><strong>Mark reminder as Finished When</strong></div>
+							<div class="col-md-9  well well-sm"><p>Select when do you want to mark the reminder as finished. For some people, it makes sense to mark it as finished as soon customer landed to your website from reminder email. Because once they come and they abandoned the cart without purchasing there is no point in keeping the reminder as active and keep sending mail. It is up to you. So we given the option to you.</p></div></div>
+                            <div class="row"><div class="col-md-3"><strong>Re-Order Link URL should land to</strong></div>
+							<div class="col-md-9 well well-sm"><p>Select where you want the customer to land on your site from reminder emails. Each option has their merits and demerits in terms of customer navigation.</p></div></div>
+                            <div class="row"><div class="col-md-3"><strong>Mail Campaign Interval</strong></div>
+							<div class="col-md-9  well well-sm"><p>This is an important setting, please pay close attention. Mail Campaign Interval is nothing but CRON.</p>
+                            <h4>What is CRON?</h4>
+                            <p>CRON is a time-based job scheduler in Unix-like computer operating systems. which run specified task/program at a specified time.</p>
+                            <p>How will it be useful here? - We can't simply check for reminder mails to be sent and send them email all the time. So we have the interval to check and send reminder emails. This interval is controlled in this setting.<br>
+                                Setting it as <strong>Twice daily</strong> will check for reminders to be sent and send reminder mail two times a day. Similarly setting Hourly will check and do mail task every hour.</p>
+                            <p><strong>Recommended Mail Campaign Interval</strong> - Twice daily or 8 hours in the custom interval option(Which will run 3 times a day). </p>
+							<p>See <a href="#cron-advanced">Advanced CRON </a> inforamtion below to get more details about wordpress Cron and setting up server Cron</p></div></div>
+                            
+							
+							<div class="row"><div class="col-md-3"><strong>Use / Inherit WooCommerce Mail Template Style</strong></div>
+							<div class="col-md-9  well well-sm"><p>
+								You can use WooCommerce email template style or you can use plain email template style.
+								When you are using the WooCommerce mail template you need to input header title. 
+							</p>
+							</div>
+							</div>
+							
+							<hr>
+							<h4> Reminder Opt In Settings </h4>
+							
+							<div class="row"><div class="col-md-3"><strong>Show Reminder Opt-In on Checkout</strong></div>
+							<div class="col-md-9  well well-sm"><p>
+								You can show an reminder opt-in section for customer at checkout.
+								If you didn't show this section then by default all the customer will be automatically opted-in.
+								In some countries, there are laws to get customer interest consent with this acknowledge before adding them to mailing list and mailing.
+								If you are in one those countries, you don't need more explanation on this.
+							</p>
+							
+							<p>In V1.5 Customer can change the reminder days according to thier usage. By default it will show the admin set date.</p>
+							<img src="img/checkout-opt-in.png" style="max-width:200px;" />
+							</div>
+							</div>
+							
+							<hr>
+							<h4> Debug </h4>
+							<div class="row"><div class="col-md-3"><strong>Email ID to send Test Email</strong></div>
+							<div class="col-md-9  well well-sm"><p> Test email can be sent using the debug section. This is used to test whether your mail server is working or not.
+                                There are multiple plugins available to check the mail system working on your server.
+                                <br>
+                                WooReminder uses WordPress <code>wp_mail()</code> functions to send mail. So if you have SMTP or other mail configured to wp mail via any plugin then those will work fine with WooReminder.
+                            </p></div></div>
+							<img src="img/main-settings.png"  />
+							
+							<h3 id="cron-advanced"><strong>CRON - Advanced</strong></h3>
+							<h4><strong>WordPress CRON are Virtual</strong></h4>
+                            <p>WordPress Cron is not true Cron. Cron is executed only when the site is accessed. WordPress will check for Cron jobs to run only when any page is requested either from visitor or bot.</p>
+                            <p>So for example if a cron job is scheduled to send mail on 4 PM 2017-07-05 and there is no visit to your site till 2017-07-06 then there won't be mail sent till 2017-07-06 because the scheduled job hasn't at all run till 2017-07-06.</p>
+                            <p>So mailing reminder on time is not guaranteed with WordPress Cron</p>
+                            <h4>How to send mail on Time</h4>
+                            <p>You can disable WordPress Cron and run your server cron to achieve on time mailing.<br>
+                                There are multiple server control panel or multiple hosting companies give different interface to set any cron. Giving step for all those are out of scope.
+                                We'll give you an outline to set real cron. </p>
+                            <p>
+                                The idea is we are trying to hit the website cron file at an interval with help of server and disabling WordPress cron which check on every page request.
+                            <ol>
+                                <li>First open your <code>wp-config.php</code> file and place the code <code>define('DISABLE_WP_CRON', 'true');</code> after database settings lines and save it.</li>
+                                <li>Login to your Cpanel</li>
+                                <li>Look for Cron Jobs, this will be under advanced sections in most Cpanel
+								<img src="img/cron-section.png" /></li>
+                                <li>Add new Cron job and select interval which you are interested
+								<img src="img/common-template-cron.png" />
+								<img style="margin-top:25px;" src="img/add-new-cron.png" /></li>
+                                <li>In the command section add the following with your username and site name
+                                    <code>wget http://www.YOURSITE.com/wp-cron.php</code> OR <code>cd /home/USERNAME/public_html; php -q wp-cron.php</code> use the directory where WordPress is installed</li>
+                                <li>Hit save, you should see new Cron created successfully message. That's it.</li>
+                            </ol>
+                            </p>
+
+
+
+                            
+                        </div>
+                    </div>
+
+                    <div class="row mt-sec" id="stats-info">
+                        <div>
+                            <h1>Stats and Info</h1>
+							<hr>
+                            <p>This section contain how WooReminder is doing(Over all re-order count, revenue which got with help of WooReminder etc) and what template makes more return or open counts.
+                                Which will help you in deciding which mail template is working good, does template with coupons work really well etc.
+                                <br>Information like what are the template tags that can be used in email templates are shown here.</p>
+                            <img src="img/stats-info.png"  />
+                        </div>
+                    </div>
+	
+						<div class="row mt-sec" id="order-action">
+					<h1>Order Action</h1>
+					<hr>
+					<p>
+					You can send re-order reminder notification manually by order action "Send Re-order Reminder Notication" can be seen at WooCommerce Order page under Order actions</p>
+					<img src="img/send-re-order-reminder.png">
+					<br>
+					<br>
+					<p>
+					What this action does is, it add the items to reminder list if not present and then send default mail immediately. 
+					So this can be used to add order items which were missed before installing this plugin.
+					But be sure to enable reminder for products. Because it adds items to reminder list only if product is enabled for remider and send notification only to items which are added in reminder list.
+					</p>
+					</div>
+					
+					<div class="row mt-sec" id="server-req">
+					<h1>Server Requirement</h1>
+					<hr>
+					<p>First of all WooReminder needs WordPress and WooCommerce installed up and running. In general, WordPress and WooCommerce require the minimum requirement as below and same is required for WooReminder too.</p>
+					<ul>
+						<li>PHP 5.6 or greater</li>
+						<li>MySQL 5.6 or greater</li>
+						<li>WP Memory limit of 64 MB or greater (128 MB or higher is preferred)</li>
+					</ul>
+					It is advisable to check Minimum Requirment for WordPress and WooCommerce from thier docs for latest requirement.
+					</div>
+					
+					<div class="row mt-sec" id="browser-req">
+					<h1>Browser Requirement</h1>
+					<hr>
+					<p>When it comes to adding product reminder in reminderlist WooReminder does not require any browser support, however when it comes to working with WooReminder admin section it is recommended to use the following browsers and WooReminder admin sections supports only the below browsers.<br>
+					All the latest version of Chrome, Firefox, Safari, and Safari for iOS, as well as Internet Explorer versions 9-11.</p>
+					</div>
+					
+					<div class="row mt-sec" id="changelog">
+					<h1>Change logs</h1>
+					<hr>
+					
+					<pre>
+- V 1.4 - 02 Jun 18
+* Feature: Reminder days can be set by customer at checkout page. 
+In order to use this feature, enable the <i><b>Show Reminder Opt-In on Checkout</b></i> in settings page 
+
+- V 1.3 - 16 Oct 17
+* Feature: Unsubscribe Shortcode - [wrmdr_unsubscribe_url anchor="Link"] added in mail template. Customer can Unsubscribe to particular reminder by the link present in the mail template. 
+* Feature: Orddered date Shortcode - [ordered_date] added in mail template.
+* Feature: Reminder Opt-In option can be provided for customer in checkout page.
+* Fix: Double mail sent when reminder added from order page is fixed.
+
+- V 1.2 - 27 Aug 17
+* Feature: added "Use / Inherit WooCommerce Mail Template Style" to use WooCommerce Mail template for all mails.
+* Fix: If same product is added by same user before reminding day, then the old reminder will be removed from reminder list and new reminder will be created with new reminder date.
+
+- V 1.1 - 30 July 17
+* Feature: added "Send Re-order Reminder Notication" in WooCommerce Order action to send mail instantly. Should be used only when you think they need re-order.
+
+- V 1.0 - 12 July 17
+ * Initial Release 
+</pre>
+					
+					</div>
+					
+                    <div class="row mt-sec" id="support">
+                        <div>
+                            <h1>Support</h1>
+							<hr>
+                            <p>Feeling lost in dessert without any support? Don't worry we got you covered. Please feel free to Shoot us a mail to <a href="mailto:contact@wptowncenter.com">contact@wptowncenter.com</a> in case if you have any queries related to WooReminder. Thanks Again :)</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <small style='right:2px;bottom:2px;position: absolute;'><i>V1.5</i></small>
+        </div>
+
+        <script type='text/javascript'>
+
+			
+			$(document).ready(function(){
+			
+			$('#sidebar-toggle').click(function(e){
+				e.preventDefault();
+				$('#main-container').toggleClass('sidebar-visible');
+			});
+			
+			//$('#getting-up-btn').click(function(e){e.preventDefault();});
+			
+			
+				/*$('.go-to').click(function(e){
+				//e.preventDefault();
+				var goToId = $(this).attr('id');
+				var goToElemOffset = $('#sec-'+goToId).offset();
+				$('.go-to').removeClass('selected');
+				if( goToId != 'top' ){
+					$(this).addClass('selected');
+				}	
+					$('html, body').animate({
+						scrollTop: goToElemOffset.top - 20,
+						scrollLeft: goToElemOffset.left -20
+					},750);
+				});*/
+				//$('body').scrollspy({ target: '#sidebar-wrapper' })
+				
+			});
+
+        </script>
+    </body>
+</html>
